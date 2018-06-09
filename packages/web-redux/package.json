@@ -1,0 +1,33 @@
+{
+  "name": "@nelreina/web-redux",
+  "version": "1.0.0",
+  "description": "Redux utils",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-web-module",
+    "clean": "nwb clean-module",
+    "test": "nwb test",
+    "test:coverage": "nwb test --coverage",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {
+    "@nelreina/web-api": "1.0.0",
+    "lodash": "^4.17.10",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "nwb": "0.21.x"
+  },
+  "author": "@nelreina",
+  "homepage": "https://github.com/nelreina/npm-packages.git",
+  "license": "MIT",
+  "repository": "https://github.com/nelreina/npm-packages.git"
+}
