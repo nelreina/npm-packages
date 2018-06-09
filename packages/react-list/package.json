@@ -1,7 +1,7 @@
 {
-  "name": "@nelreina/react-redux-form",
+  "name": "@nelreina/react-list",
   "version": "1.0.0",
-  "description": "Abstraction of redux-form",
+  "description": "Utility component to loop throuhgt a array or object",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -19,37 +19,26 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "emotion": "^9.1.2",
-    "lodash": "^4.17.10",
-    "@nelreina/react-list": "1.0.0",
-    "prop-types": "^15.6.1",
-    "redux-form": "^7.3.0",
-    "string": "^3.3.3",
-    "styled-components": "^3.3.2",
-    "validator": "^9.4.1"
+    "lodash": "^4.17.10"
   },
   "peerDependencies": {
     "react": "16.x"
   },
   "devDependencies": {
     "bootstrap": "^4.1.0",
-    "@nelreina/web-redux": "1.0.0",
     "nwb": "0.21.x",
+    "prop-types": "^15.6.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-highlight": "^0.12.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2"
+    "react-dom": "^16.3.2"
   },
-  "author": "@nelreina>",
-  "homepage": "http://nelreina-react-redux-form.surge.sh/",
+  "homepage": "http://nelreina-react-list.surge.sh/",
   "license": "MIT",
   "repository": "https://github.com/nelreina/npm-packages.git",
+  "author": "@nelreina",
   "keywords": [
     "react-component",
-    "react",
-    "form",
-    "bootstrap",
-    "redux-form"
+    "map",
+    "list",
+    "react"
   ]
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { reduxForm } from "redux-form";
-import List from "nr-react-list";
+import List from "@nelreina/react-list";
 import { each, assign, isString, isArray, keyBy } from "lodash";
 import FieldItem from "./FieldItem";
 

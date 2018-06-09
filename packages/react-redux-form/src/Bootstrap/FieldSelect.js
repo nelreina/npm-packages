@@ -1,5 +1,5 @@
 import React from "react";
-import List from "nr-react-list";
+import List from "@nelreina/react-list";
 import { connect } from "react-redux";
 import { get, isArray } from "lodash";
 import { css } from "emotion";

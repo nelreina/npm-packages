@@ -1,5 +1,5 @@
 import React from "react";
-import List from "nr-react-list";
+import List from "@nelreina/react-list";
 import { css } from "emotion";
 import { keys } from "lodash";
 import FieldItem from "./FieldItem";
