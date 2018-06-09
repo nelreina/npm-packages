@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import List from "../../src";
 import { assign } from "lodash";
 import "./style.css";
 
@@ -20,19 +19,12 @@ const fieldObject = {
     isRequired: true
   }
 };
-
-const FieldItem = ({ item, name }) => (
-  <pre>{JSON.stringify(assign({}, item, { name }), null, 2)}</pre>
-);
-
 class Demo extends Component {
   render() {
     return (
       <div className="container">
         <h1>@nelreina/react-list Demo</h1>
         <p>Utility Component to render an iterator(Array of objects) </p>
-        {/* <List of={FieldItem} iterator={fieldObject} keyname="name" /> */}
-
         <ListItemProp />
         <ListCostumPropName />
       </div>

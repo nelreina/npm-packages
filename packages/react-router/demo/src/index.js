@@ -24,7 +24,7 @@ class Demo extends Component {
     return (
       <Router>
         <div>
-          <h1>nr-react-private-route Demo</h1>
+          <h1>@nelreina/react-router Demo</h1>
           <ul>
             <li>
               <Link to="/public">Public</Link>
