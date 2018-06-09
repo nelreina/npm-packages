@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/web-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simplified abstraction fetch api",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -16,7 +16,6 @@
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"
   },
-  "dependencies": {},
   "devDependencies": {
     "nwb": "0.21.x"
   },
