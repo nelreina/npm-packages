@@ -1,14 +1,28 @@
-# web-api
+# @nelreina/web-api
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+A simplified abstraction of the javascript fetch api
 
-Describe web-api here.
+## Usage
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+#### Simple Methods
+
+```javascript
+import { get, post } from '@nelreina/web-api';
+
+const data = await get('/some-path or http(s)://public/api');
+```
+
+or
+
+#### Class
+
+```javascript
+import Api from '@nelreina/web-api';
+
+const api = new Api('http(s)://some-host')
+const data = await api.get('/some-path');
+```
+
+## TODO
+
+- Add option to add custom headers in class
