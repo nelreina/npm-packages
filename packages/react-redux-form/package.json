@@ -43,12 +43,10 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2"
   },
-  "author": "Nelson Reina <nelreina@gmail.com>",
+  "author": "@nelreina>",
+  "homepage": "https://github.com/nelreina/npm-packages.git",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nelreina/nr-react-form.git"
-  },
+  "repository": "https://github.com/nelreina/npm-packages.git",
   "keywords": [
     "react-component",
     "react",
