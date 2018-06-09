@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/react-route",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "@nelreina/react-route React component",
   "main": "lib/index.js",
   "module": "es/index.js",
