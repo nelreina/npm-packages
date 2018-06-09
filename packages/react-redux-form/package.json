@@ -1,0 +1,59 @@
+{
+  "name": "@nelreina/react-redux-form",
+  "version": "1.0.0",
+  "description": "Abstraction of redux-form",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server",
+    "publish": "nwb build-demo && gh-pages -d demo/dist"
+  },
+  "dependencies": {
+    "emotion": "^9.1.2",
+    "lodash": "^4.17.10",
+    "nr-react-list": "^1.2.1",
+    "prop-types": "^15.6.1",
+    "redux-form": "^7.3.0",
+    "string": "^3.3.3",
+    "styled-components": "^3.3.2",
+    "validator": "^9.4.1"
+  },
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "devDependencies": {
+    "bootstrap": "^4.1.0",
+    "gh-pages": "^1.1.0",
+    "@nelreina/web-redux": "1.0.0",
+    "nwb": "0.21.x",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-highlight": "^0.12.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2"
+  },
+  "author": "Nelson Reina <nelreina@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nelreina/nr-react-form.git"
+  },
+  "keywords": [
+    "react-component",
+    "react",
+    "form",
+    "bootstrap",
+    "redux-form"
+  ]
+}
