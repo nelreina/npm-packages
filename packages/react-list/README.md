@@ -1,5 +1,6 @@
 # @nelreina/react-list
 
+version 2.0.0
 Utility Component to render an iterator(Array of objects)
 
 ## List with an "item" prop

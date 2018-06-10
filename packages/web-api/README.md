@@ -1,5 +1,6 @@
 # @nelreina/web-api
 
+version 2.0.0
 A simplified abstraction of the javascript fetch api
 
 ## Usage

@@ -1,5 +1,6 @@
 # nr-react-form
 
+version 2.0.0
 Utility package using redux-form for creating Forms
 
 # NOTE V5.\*
