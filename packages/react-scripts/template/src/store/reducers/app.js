@@ -1,15 +1,15 @@
 import { assign } from 'lodash';
 
-const FETCHING = 'FETCHING_SETTINGS';
-const FETCH_SUCCESS = 'FETCH_SETTINGS_SUCCESS';
-const FETCH_ERROR = 'FETCH_SETTINGS_ERROR';
+const FETCHING = '[app] fetching-github';
+const FETCH_SUCCESS = '[app] fetched-github-with-success';
+const FETCH_ERROR = '[app] fetch-github-failed';
 
-const initialState = { settings: {} };
+const initialState = { data: [] };
 
-export const fetchSettings = () => async (dispatch, getState, api) => {
+export const fetchCommits = () => async (dispatch, getState, api) => {
   dispatch({ type: FETCHING });
   try {
-    const payload = await api.get('/interface/settings');
+    const payload = await api.get('/commits');
     dispatch({
       type: FETCH_SUCCESS,
       payload
@@ -31,12 +31,12 @@ export default (state = initialState, action) => {
       return assign({}, state, {
         error: false,
         fetching: false,
-        settings: payload
+        data: payload
       });
     case FETCHING:
-      return assign({}, state, { error: false, fetching: true, settings: {} });
+      return assign({}, state, { error: false, fetching: true, data: [] });
     case FETCH_ERROR:
-      return assign({}, state, { error: true, message: payload, settings: {} });
+      return assign({}, state, { error: true, message: payload, data: [] });
 
     default:
       return state;
