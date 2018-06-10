@@ -1,5 +1,5 @@
-import { createStoreDOM } from '@nelreina/web-redux';
+import { createStore } from '@nelreina/web-redux';
 
 import rootReducer from './rootReducer';
-export const store = createStoreDOM(rootReducer, {}, '/api');
+export const store = createStore(rootReducer, {}, '/api');
 export default store;
