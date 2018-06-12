@@ -10,3 +10,8 @@ export const FormError = styled.div`
 export const FormField = styled.div`
   /* margin-bottom: 1em; */
 `;
+
+export const Button = styled.button.attrs({
+  className: props =>
+    props.className ? `btn ${props.className}` : "btn btn-dark"
+})``;

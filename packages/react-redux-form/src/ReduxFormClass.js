@@ -2,10 +2,10 @@ import React from "react";
 import { reduxForm } from "redux-form";
 import List from "@nelreina/react-list";
 import { each, assign, isString, isArray, keyBy } from "lodash";
+
+import Spinner from "./Spinner";
 import FieldItem from "./FieldItem";
-
-import { FormError, FormField } from "./styled";
-
+import { FormError, FormField, Button } from "./styled";
 import {
   checkRequiredFields,
   checkMinLength,
@@ -63,7 +63,7 @@ class ReduxFormClass {
       }
     }
     let Form = props => {
-      const { handleSubmit, action } = props;
+      const { handleSubmit, action, loading } = props;
       return (
         <form onSubmit={handleSubmit(action)}>
           <FormField>
@@ -74,9 +74,10 @@ class ReduxFormClass {
               formname={this._formName}
             />
           </FormField>
-          <button className={this._buttonClass} type="submit">
+          <Button className={this._buttonClass} type="submit">
+            {loading && <Spinner size="1x" />}
             {this._buttonText || "Submit"}
-          </button>
+          </Button>
         </form>
       );
     };
