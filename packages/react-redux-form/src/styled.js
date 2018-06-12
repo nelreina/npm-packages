@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FormError = styled.div`
   color: red;
   &::before {
-    content: "Form Error: ";
+    content: 'Form Error: ';
     font-weight: bold;
   }
 `;
@@ -13,5 +13,5 @@ export const FormField = styled.div`
 
 export const Button = styled.button.attrs({
   className: props =>
-    props.className ? `btn ${props.className}` : "btn btn-dark"
+    props.className ? `btn ${props.className}` : 'btn btn-dark'
 })``;

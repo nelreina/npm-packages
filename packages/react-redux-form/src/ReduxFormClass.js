@@ -1,18 +1,18 @@
-import React from "react";
-import { reduxForm } from "redux-form";
-import List from "@nelreina/react-list";
-import { each, assign, isString, isArray, keyBy } from "lodash";
+import React from 'react';
+import { reduxForm } from 'redux-form';
+import List from '@nelreina/react-list';
+import { each, assign, isString, isArray, keyBy } from 'lodash';
 
-import Spinner from "./Spinner";
-import FieldItem from "./FieldItem";
-import { FormError, FormField, Button } from "./styled";
+import Spinner from './Spinner';
+import FieldItem from './FieldItem';
+import { FormError, FormField, Button } from './styled';
 import {
   checkRequiredFields,
   checkMinLength,
   checkMaxLength,
   checkType,
   checkIsEqual
-} from "./validations";
+} from './validations';
 
 class ReduxFormClass {
   constructor(name, fields, initialValues, customValidator) {
@@ -30,7 +30,7 @@ class ReduxFormClass {
     let errors = {};
     each(this._fields, (config, key) => {
       const name = isString(key) ? key : config.name;
-      config["name"] = name;
+      config['name'] = name;
       const req = checkRequiredFields(values[name], config, name);
       const max = checkMaxLength(values[name], config, name);
       const min = checkMinLength(values[name], config, name);
@@ -48,12 +48,12 @@ class ReduxFormClass {
     if (isArray(this._fields)) {
       let allFieldsContainsName = true;
       this._fields.forEach(field => {
-        if (!("name" in field)) {
+        if (!('name' in field)) {
           allFieldsContainsName = false;
         }
       });
       if (allFieldsContainsName) {
-        this._fields = keyBy(this._fields, "name");
+        this._fields = keyBy(this._fields, 'name');
       } else {
         return () => (
           <FormError>
@@ -76,7 +76,7 @@ class ReduxFormClass {
           </FormField>
           <Button className={this._buttonClass} type="submit">
             {loading && <Spinner size="1x" />}
-            {this._buttonText || "Submit"}
+            {this._buttonText || 'Submit'}
           </Button>
         </form>
       );
