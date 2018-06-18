@@ -10,9 +10,9 @@ S.extendPrototype();
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 const fileExists = promisify(fs.exists);
-const dotenvFile = path.resolve(__dirname, './.env');
 
-module.exports = async envs => {
+module.exports = async (dirname, envs) => {
+  const dotenvFile = path.resolve(dirname, './.env');
   const existingEnvs = {};
   if (await fileExists(dotenvFile)) {
     const envArray = (await readFile(dotenvFile)).toString().split(EOL);
