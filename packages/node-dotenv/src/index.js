@@ -10,7 +10,7 @@ S.extendPrototype();
 const writeFile = promisify(fs.writeFile);
 const readFile = promisify(fs.readFile);
 const fileExists = promisify(fs.exists);
-const dotenvFile = path.resolve(__dirname, '.env');
+const dotenvFile = path.resolve(__dirname, './.env');
 
 module.exports = async envs => {
   const existingEnvs = {};
