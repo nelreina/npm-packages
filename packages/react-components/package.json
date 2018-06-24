@@ -1,0 +1,45 @@
+{
+  "name": "@nelreina/react-components",
+  "version": "2.2.0",
+  "description": "Utility component to loop throuhgt a array or object",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "styled-components": "^3.3.3"
+  },
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "devDependencies": {
+    "nwb": "0.21.x",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "homepage": "http://nelreina-react-components.surge.sh/",
+  "license": "MIT",
+  "repository": "https://github.com/nelreina/npm-packages.git",
+  "author": "@nelreina",
+  "keywords": [
+    "react-component",
+    "map",
+    "list",
+    "react"
+  ]
+}
