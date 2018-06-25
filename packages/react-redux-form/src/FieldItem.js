@@ -1,8 +1,8 @@
-import React from "react";
-import { Field, FieldArray } from "redux-form";
-import RenderField from "./RenderField";
-import RenderFieldArray from "./RenderFieldArray";
-import { assign } from "lodash";
+import React from 'react';
+import { Field, FieldArray } from 'redux-form';
+import RenderField from './RenderField';
+import RenderFieldArray from './RenderFieldArray';
+import { assign } from 'lodash';
 
 const FieldItem = props => {
   const { item: field, name, fieldname } = props;
@@ -10,7 +10,7 @@ const FieldItem = props => {
   const fieldProps = assign({}, field, props, { placeholder: name });
   let item;
   switch (field.type) {
-    case "field-array":
+    case 'field-array':
       item = (
         <FieldArray
           {...props}

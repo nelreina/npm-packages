@@ -1,8 +1,8 @@
-import React from "react";
-import List from "@nelreina/react-list";
-import { css } from "emotion";
-import { keys } from "lodash";
-import FieldItem from "./FieldItem";
+import React from 'react';
+import List from '@nelreina/react-list';
+import { css } from 'emotion';
+import { keys } from 'lodash';
+import FieldItem from './FieldItem';
 
 const getCssFieldInput = col => `
 flex-basis: 90%;
@@ -21,7 +21,14 @@ const cssFieldRowButton = css`
 `;
 
 const RenderFieldArray = props => {
-  const { arrayFields, fields, parent, legend } = props;
+  const {
+    arrayFields,
+    fields,
+    parent,
+    legend,
+    addField = true,
+    removeField = true
+  } = props;
   const cssFieldInput = css`
     ${getCssFieldInput(keys(arrayFields).length)};
   `;
@@ -51,18 +58,23 @@ const RenderFieldArray = props => {
                   fieldname={fieldname}
                 />
               </div>
-              <button
-                className={[cssFieldRowButton, "btn", "btn-danger"].join(" ")}
-                onClick={() => fields.remove(idx)}
-              >
-                -
-              </button>
+
+              {removeField && (
+                <button
+                  className={[cssFieldRowButton, 'btn', 'btn-danger'].join(' ')}
+                  onClick={() => fields.remove(idx)}
+                >
+                  -
+                </button>
+              )}
             </div>
           );
         })}
-        <button className="btn btn-light" onClick={() => fields.push()}>
-          + {parent}
-        </button>
+        {addField && (
+          <button className="btn btn-light" onClick={() => fields.push()}>
+            + {parent}
+          </button>
+        )}
       </div>
     </div>
   );

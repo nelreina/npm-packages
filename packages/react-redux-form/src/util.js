@@ -1,25 +1,32 @@
-import React from "react";
-import S from "string";
-import { isString } from "lodash";
+import React from 'react';
+import S from 'string';
+import { isString } from 'lodash';
 
-import FieldText from "./Bootstrap/FieldText";
-import FieldTextArea from "./Bootstrap/FieldTextArea";
-import FieldSelect from "./Bootstrap/FieldSelect";
-import FieldCheck from "./Bootstrap/FieldCheck";
-import FieldRadio from "./Bootstrap/FieldRadio";
+import FieldCheck from './Bootstrap/FieldCheck';
+import FieldRadio from './Bootstrap/FieldRadio';
+import FieldReadOnly from './Bootstrap/FieldReadOnly';
+import FieldSelect from './Bootstrap/FieldSelect';
+import FieldText from './Bootstrap/FieldText';
+import FieldTextArea from './Bootstrap/FieldTextArea';
 
 S.extendPrototype();
 
 export const getInputType = (type, props) => {
-  switch (type) {
-    case "select":
+  let _type = type;
+  if (_type === 'field-array') {
+    _type = props.item.type;
+  }
+  switch (_type) {
+    case 'select':
       return <FieldSelect {...props} />;
-    case "textarea":
+    case 'textarea':
       return <FieldTextArea {...props} />;
-    case "checkbox":
+    case 'checkbox':
       return <FieldCheck type={type} {...props} />;
-    case "radio":
+    case 'radio':
       return <FieldRadio type={type} {...props} />;
+    case 'readonly':
+      return <FieldReadOnly type={type} {...props} />;
     default:
       return <FieldText type={type} {...props} />;
   }
