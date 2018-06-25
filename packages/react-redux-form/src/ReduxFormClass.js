@@ -3,9 +3,9 @@ import { reduxForm } from 'redux-form';
 import List from '@nelreina/react-list';
 import { each, assign, isString, isArray, keyBy } from 'lodash';
 
-import Spinner from './Spinner';
+import { Spinner, Button } from '@nelreina/react-components';
 import FieldItem from './FieldItem';
-import { FormError, FormField, Button } from './styled';
+import { FormError, FormField } from './styled';
 import {
   checkRequiredFields,
   checkMinLength,
@@ -74,8 +74,13 @@ class ReduxFormClass {
               formname={this._formName}
             />
           </FormField>
-          <Button className={this._buttonClass} type="submit">
-            {loading && <Spinner size="1x" />}
+          <Button
+            btn={[this._buttonClass, loading ? 'disabled' : ''].join(' ')}
+            type="submit"
+            disabled={loading}
+          >
+            {loading && <Spinner />}
+            {'   '}
             {this._buttonText || 'Submit'}
           </Button>
         </form>

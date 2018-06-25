@@ -11,6 +11,6 @@ const fields = {
 };
 
 const SimpleForm = new Form('SimpleForm', fields)
-  .button('Simple', 'btn btn-dark btn-block')
+  .button('Simple', 'dark btn-block')
   .getComponent();
 export default SimpleForm;

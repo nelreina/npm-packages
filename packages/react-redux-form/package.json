@@ -19,7 +19,8 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "@nelreina/react-list": "^2.2.0",
+    "@nelreina/react-list": "2.2.0",
+    "@nelreina/react-components": "2.3.0",
     "emotion": "^9.1.2",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.1",

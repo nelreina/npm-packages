@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
-import { BrowserRouter, NavLink } from "react-router-dom";
-import Highlight from "react-highlight";
-import store from "./store";
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter, NavLink } from 'react-router-dom';
+import Highlight from 'react-highlight';
+import store from './store';
 
-import FormState from "./FormState";
-import DisplayForm from "./DisplayForm";
+import FormState from './FormState';
+import DisplayForm from './DisplayForm';
 
-import "bootstrap/dist/css/bootstrap.css";
-import "highlight.js/styles/dracula.css";
-import "./app.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'highlight.js/styles/dracula.css';
+import 'font-awesome/css/font-awesome.css';
+import './app.css';
 
 class Demo extends Component {
   state = { values: {} };
@@ -25,7 +26,7 @@ class Demo extends Component {
             <h2>@nelreina/react-redux-form Demo</h2>
             <p className="text-center">
               All input types of @nelreina/react-redux-form library is styled
-              with{" "}
+              with{' '}
               <a target="_blank" href="http://getbootstrap.com">
                 Bootstrap V4
               </a>
@@ -71,4 +72,4 @@ class Demo extends Component {
   }
 }
 
-render(<Demo />, document.querySelector("#demo"));
+render(<Demo />, document.querySelector('#demo'));

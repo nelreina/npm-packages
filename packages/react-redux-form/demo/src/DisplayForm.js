@@ -1,33 +1,49 @@
-import React, { Fragment } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Button } from '@nelreina/react-components';
 
-import code from "./sample-code";
-import Highlight from "react-highlight";
+import code from './sample-code';
+import Highlight from 'react-highlight';
 
-import AdvancedForm from "./forms/AdvancedForm";
-import SimpleForm from "./forms/SimpleForm";
-import SignUpForm from "./forms/SignUpForm";
-import FieldArrayForm from "./forms/FieldArrayForm";
-import AllInputTypeForm from "./forms/AllInputTypeForm";
-import SelectOptionsForm from "./forms/SelectOptionsForm";
-import FormState from "./FormState";
-import { LoginFormEmail, LoginFormUserName } from "../../src";
+import AdvancedForm from './forms/AdvancedForm';
+import SimpleForm from './forms/SimpleForm';
+import SignUpForm from './forms/SignUpForm';
+import FieldArrayForm from './forms/FieldArrayForm';
+import AllInputTypeForm from './forms/AllInputTypeForm';
+import SelectOptionsForm from './forms/SelectOptionsForm';
+import FormState from './FormState';
+import { LoginFormEmail, LoginFormUserName } from '../../src';
 
-const Form = ({ comp: Component, action, name }) => (
-  <div className="form">
-    <div>
-      <Component action={action} />
-    </div>
-    <hr className="divider" />
-    <FormState name={name} />
-    {code[name] && (
-      <Fragment>
+class Form extends React.Component {
+  state = {
+    loading: false
+  };
+  toggleLoading = () => {
+    this.setState(prevState => ({ loading: !prevState.loading }));
+  };
+  render() {
+    const { comp: Component, action, name } = this.props;
+    return (
+      <div className="form">
+        <div>
+          <Component action={action} loading={this.state.loading} />
+          <hr />
+          <Button green onClick={this.toggleLoading}>
+            Test Loading
+          </Button>
+        </div>
         <hr className="divider" />
-        <Highlight className="javascript code">{code[name]}</Highlight>
-      </Fragment>
-    )}
-  </div>
-);
+        <FormState name={name} />
+        {code[name] && (
+          <Fragment>
+            <hr className="divider" />
+            <Highlight className="javascript code">{code[name]}</Highlight>
+          </Fragment>
+        )}
+      </div>
+    );
+  }
+}
 
 const DisplayForm = ({ action }) => (
   <Switch>
