@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/react-scripts",
-  "version": "2.2.0",
+  "version": "2.4.0",
   "description": "@nelreina Configuration and scripts for Create React App.",
   "repository": "nelreina/create-react-app",
   "license": "MIT",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@nelreina/react-list": "^2.2.0",
-    "@nelreina/react-redux-form": "^2.2.0",
+    "@nelreina/react-redux-form": "^2.4.0",
     "@nelreina/web-redux": "^2.2.0",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
