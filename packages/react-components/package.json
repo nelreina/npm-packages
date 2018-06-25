@@ -1,7 +1,7 @@
 {
   "name": "@nelreina/react-components",
   "version": "2.3.0",
-  "description": "Utility component to loop throuhgt a array or object",
+  "description": "Library with reusable react components",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -40,8 +40,10 @@
   "author": "@nelreina",
   "keywords": [
     "react-component",
-    "map",
-    "list",
-    "react"
+    "Popover",
+    "Date",
+    "Icon",
+    "Spinner",
+    "React"
   ]
 }
