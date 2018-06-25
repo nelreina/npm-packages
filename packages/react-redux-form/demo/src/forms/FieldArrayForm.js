@@ -1,25 +1,28 @@
-import { ReduxFormClass as Form } from "../../../src";
-import { store } from "../store";
-import { get } from "lodash";
+import { ReduxFormClass as Form } from '../../../src';
+import { store } from '../store';
+import { get } from 'lodash';
 const isRequired = true;
 
 const fields = {
   clubName: { isRequired, minLength: 3, maxLength: 10 },
   member: {
-    type: "field-array",
-    legend: "Members",
+    type: 'field-array',
+    legend: 'Members',
+    addField: false,
+    removeField: false,
     arrayFields: {
       firstName: {},
       lastName: {},
-      age: {}
+      age: {},
+      stars: { type: 'readonly' }
     }
   }
 };
 
-const selectClub = state => get(state, "club.data");
+const selectClub = state => get(state, 'club.data');
 const init = store ? selectClub(store.getState()) : {};
 
-const FieldArrayForm = new Form("FieldArrayForm", fields, init)
-  .button(null, "btn btn-dark btn-block")
+const FieldArrayForm = new Form('FieldArrayForm', fields, init)
+  .button(null, 'btn btn-dark btn-block')
   .getComponent();
 export default FieldArrayForm;
