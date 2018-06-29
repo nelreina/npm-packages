@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import List from '@nelreina/react-list';
-import Moment from './Moment';
+import { Moment } from '@nelreina/react-components';
 import { Title, Card, CardBody, CardText, CardTitle } from '../styled-app';
 const Wrapper = styled.div`
   display: grid;
