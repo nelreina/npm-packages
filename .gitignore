@@ -1,3 +1,5 @@
 node_modules
 .env
 *.log
+kitchen-sink
+log4js.json
