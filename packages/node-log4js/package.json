@@ -7,7 +7,7 @@
     "src"
   ],
   "scripts": {
-    "dev": "nodemon --watch src src/index.js"
+    "test": "jest --watch"
   },
   "keywords": [
     "node",
@@ -16,13 +16,15 @@
   "author": "@nelreina",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.17.2"
+    "jest": "21"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nelreina/npm-packages.git"
   },
   "dependencies": {
-    "log4js": "^2.10.0"
+    "lodash": "^4.17.10",
+    "log4js": "^2.10.0",
+    "string": "^3.3.3"
   }
 }
