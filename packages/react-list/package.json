@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/react-list",
-  "version": "2.2.0",
+  "version": "3.0.1",
   "description": "Utility component to loop throuhgt a array or object",
   "main": "lib/index.js",
   "module": "es/index.js",

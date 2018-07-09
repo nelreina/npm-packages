@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/react-redux-form",
-  "version": "2.4.0",
+  "version": "3.0.1",
   "description": "Abstraction of redux-form",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -19,8 +19,8 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "@nelreina/react-components": "^2.4.0",
-    "@nelreina/react-list": "2.2.0",
+    "@nelreina/react-components": "^3.0.1",
+    "@nelreina/react-list": "^3.0.1",
     "emotion": "^9.1.2",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.1",
@@ -33,7 +33,7 @@
     "react": "16.x"
   },
   "devDependencies": {
-    "@nelreina/web-redux": "^2.2.0",
+    "@nelreina/web-redux": "^3.0.1",
     "bootstrap": "^4.1.0",
     "nwb": "0.21.x",
     "react": "^16.3.2",

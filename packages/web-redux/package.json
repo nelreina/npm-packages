@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/web-redux",
-  "version": "2.2.0",
+  "version": "3.0.1",
   "description": "Redux utils",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -17,7 +17,7 @@
     "test:watch": "nwb test --server"
   },
   "dependencies": {
-    "@nelreina/web-api": "^2.2.0",
+    "@nelreina/web-api": "^3.0.1",
     "lodash": "^4.17.10",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",

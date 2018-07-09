@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/web-api",
-  "version": "2.2.0",
+  "version": "3.0.1",
   "description": "A simplified abstraction fetch api",
   "main": "lib/index.js",
   "module": "es/index.js",
