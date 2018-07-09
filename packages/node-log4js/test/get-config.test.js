@@ -1,5 +1,5 @@
 const getConfig = require('../src/get-config');
-
+const urllogstash = 'http://localhost:9201';
 const consoleConfig = {
   appenders: {
     console: { type: 'console' }
@@ -16,6 +16,20 @@ const fileConfig = {
   categories: {
     default: { appenders: ['console'], level: 'trace' },
     app: { appenders: ['file'], level: 'trace' }
+  }
+};
+const logstashConfig = {
+  appenders: {
+    console: { type: 'console' },
+    logstash: {
+      type: '@log4js-node/logstash-http',
+      url: urllogstash,
+      application: 'app'
+    }
+  },
+  categories: {
+    default: { appenders: ['console'], level: 'trace' },
+    app: { appenders: ['console', 'logstash'], level: 'trace' }
   }
 };
 const fileAndConsoleConfig = {
@@ -40,5 +54,11 @@ describe('Get log4js configuration', () => {
   });
   test('should return file config', () => {
     expect(getConfig('app', { file: true })).toEqual(fileAndConsoleConfig);
+  });
+  test('should return logstashsearch config with url', () => {
+    expect(getConfig('app', { logstash: urllogstash })).toEqual(logstashConfig);
+  });
+  test('should return logstashsearch config with boolean', () => {
+    expect(getConfig('app', { logstash: true })).toEqual(logstashConfig);
   });
 });

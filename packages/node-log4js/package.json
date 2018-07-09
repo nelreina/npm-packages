@@ -23,6 +23,7 @@
     "url": "https://github.com/nelreina/npm-packages.git"
   },
   "dependencies": {
+    "@log4js-node/logstash-http": "^1.0.0",
     "lodash": "^4.17.10",
     "log4js": "^2.10.0",
     "string": "^3.3.3"
