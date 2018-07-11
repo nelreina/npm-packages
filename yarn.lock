@@ -7001,6 +7001,10 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
+msnodesqlv8@0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/msnodesqlv8/-/msnodesqlv8-0.3.2.tgz#f85aeab7143676b0619b76affd55a988fa53e575"
+
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
@@ -7199,7 +7203,7 @@ nodemailer@^2.5.0:
     nodemailer-smtp-transport "2.7.2"
     socks "1.1.9"
 
-nodemon@^1.17.2, nodemon@^1.17.5:
+nodemon@^1.17.2:
   version "1.17.5"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.17.5.tgz#e6a665c872fdf09d48bf2a81f3e85f8cfb39322a"
   dependencies:
@@ -9220,6 +9224,14 @@ send@0.16.2:
     range-parser "~1.2.0"
     statuses "~1.4.0"
 
+sequelize-msnodesqlv8@^0.2.6-beta.7:
+  version "0.2.6-beta.7"
+  resolved "https://registry.yarnpkg.com/sequelize-msnodesqlv8/-/sequelize-msnodesqlv8-0.2.6-beta.7.tgz#8c9532f49913aacdc46f2af54cad20fee9d97b14"
+  dependencies:
+    debug "3.1.0"
+    msnodesqlv8 "0.3.2"
+    uuid "3.1.0"
+
 sequelize@^4.37.8:
   version "4.37.10"
   resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.37.10.tgz#1ccca570956a5bfe1c4c00abbc927633ca8d12d8"
@@ -10548,6 +10560,10 @@ utila@~0.4:
 utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
+
+uuid@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
 
 uuid@^2.0.1, uuid@^2.0.2:
   version "2.0.3"

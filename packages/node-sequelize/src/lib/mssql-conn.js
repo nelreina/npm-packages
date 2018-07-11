@@ -1,16 +1,28 @@
+require('dotenv').config();
 const Sequelize = require('sequelize');
-const host = process.env.DB_HOST;
-const name = process.env.DB_NAME;
-const connectionString = `Server=${host};Database=${name};Trusted_Connection=yes;`;
-console.info('mssql connection', connectionString);
 
-module.exports = () =>
-  new Sequelize({
-    dialect: 'mssql',
-    dialectModulePath: 'sequelize-msnodesqlv8',
-    logging: false,
-    operatorsAliases: false,
-    dialectOptions: {
-      connectionString
-    }
-  });
+const DB_HOST = process.env.DB_HOST;
+const DB_NAME = process.env.DB_NAME;
+const DB_USERNAME = process.env.DB_USERNAME;
+const DB_PASSWORD = process.env.DB_PASSWORD;
+
+const trustedConn = `Server=${DB_HOST};Database=${DB_NAME};Trusted_Connection=yes;`;
+const authConn = `Server=${DB_HOST};Database=${DB_NAME};Username:${DB_USERNAME};Pass=`;
+
+module.exports = (trusted = true, logger = console) => {
+  logger.info('mssql connection', trusted ? trustedConn : authConn);
+  const conn = {};
+  conn['dialect'] = 'mssql';
+  conn['operatorsAliases'] = false;
+  conn['logging'] = false;
+  if (!trusted) {
+    conn['username'] = DB_USERNAME;
+    conn['password'] = DB_PASSWORD;
+    conn['database'] = DB_NAME;
+    conn['host'] = DB_HOST;
+  } else {
+    conn['dialectModulePath'] = 'sequelize-msnodesqlv8';
+    conn['dialectOptions'] = { connectionString: trustedConn };
+  }
+  return new Sequelize(conn);
+};
