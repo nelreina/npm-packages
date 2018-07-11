@@ -11,7 +11,7 @@ const bus = servicebus({ package: true });
 let count = 0;
 logger.info('Log4js works');
 
-const sql = 'select * from model.Report';
+const sql = 'select * from columnDef';
 
 const sendCron = async () => {
   const data = await Q(mssql, sql, true);

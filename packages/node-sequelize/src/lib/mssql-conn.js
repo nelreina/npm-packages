@@ -5,6 +5,7 @@ const DB_HOST = process.env.DB_HOST;
 const DB_NAME = process.env.DB_NAME;
 const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_PORT = process.env.DB_PORT;
 const DB_INTEGRATED = process.env.DB_INTEGRATED;
 
 const trustedConn = `Server=${DB_HOST};Database=${DB_NAME};Trusted_Connection=yes;`;
@@ -26,6 +27,9 @@ module.exports = (logger = console) => {
     conn['password'] = DB_PASSWORD;
     conn['database'] = DB_NAME;
     conn['host'] = DB_HOST;
+    if (DB_PORT) {
+      conn['port'] = DB_PORT;
+    }
   } else {
     conn['dialectModulePath'] = 'sequelize-msnodesqlv8';
     conn['dialectOptions'] = { connectionString: trustedConn };
