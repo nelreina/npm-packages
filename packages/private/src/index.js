@@ -5,7 +5,7 @@ const { mssqlConn, invokeSQLCmd: Q } = require('@nelreina/node-sequelize');
 const CronJob = require('cron').CronJob;
 
 const logger = log4js('private');
-const mssql = mssqlConn(false, logger);
+const mssql = mssqlConn(logger);
 const bus = servicebus({ package: true });
 
 let count = 0;

@@ -5,17 +5,23 @@ const DB_HOST = process.env.DB_HOST;
 const DB_NAME = process.env.DB_NAME;
 const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
+const DB_INTEGRATED = process.env.DB_INTEGRATED;
 
 const trustedConn = `Server=${DB_HOST};Database=${DB_NAME};Trusted_Connection=yes;`;
 const authConn = `Server=${DB_HOST};Database=${DB_NAME};Username:${DB_USERNAME};Pass=`;
 
-module.exports = (trusted = true, logger = console) => {
-  logger.info('mssql connection', trusted ? trustedConn : authConn);
+module.exports = (logger = console) => {
+  if (!DB_INTEGRATED) {
+    logger.error('env variable DB_INTEGRATED is required!');
+    throw new Error('ERR: env variable DB_INTEGRATED is required!');
+  }
+  const integrated = DB_INTEGRATED === 'Y';
+  logger.info('mssql connection', integrated ? trustedConn : authConn);
   const conn = {};
   conn['dialect'] = 'mssql';
   conn['operatorsAliases'] = false;
   conn['logging'] = false;
-  if (!trusted) {
+  if (!integrated) {
     conn['username'] = DB_USERNAME;
     conn['password'] = DB_PASSWORD;
     conn['database'] = DB_NAME;
