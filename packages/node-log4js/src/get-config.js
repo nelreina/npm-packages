@@ -4,6 +4,7 @@ module.exports = (category = 'default', options = {}) => {
   let console = true;
   let file = false;
   let logstash = false;
+  let mq = false;
   config.appenders = {};
   config.appenders.console = { type: 'console' };
   config.categories = {};
@@ -17,6 +18,7 @@ module.exports = (category = 'default', options = {}) => {
 
   if ('console' in options) console = options.console;
   if ('file' in options) file = options.file;
+  if ('mq' in options) mq = options.mq;
   if ('logstash' in options) {
     if (!isBoolean(options.logstash)) {
       logstash = options.logstash;
@@ -32,6 +34,10 @@ module.exports = (category = 'default', options = {}) => {
   if (file) {
     config.appenders.file = { type: 'file', filename: `${category}.log` };
     config.categories[category].appenders.push('file');
+  }
+  if (mq) {
+    config.appenders.mq = { type: '@log4js-node/rabbitmq' };
+    config.categories[category].appenders.push('mq');
   }
   if (logstash) {
     config.appenders.logstash = {

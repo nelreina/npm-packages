@@ -4,7 +4,7 @@ const servicebus = require('@nelreina/node-servicebus');
 const { mssqlConn, invokeSQLCmd: Q } = require('@nelreina/node-sequelize');
 const CronJob = require('cron').CronJob;
 
-const logger = log4js('private');
+const logger = log4js('private', { mq: true, console: false });
 const mssql = mssqlConn(logger);
 const bus = servicebus({ package: true });
 
@@ -28,3 +28,4 @@ new CronJob(
   null,
   true
 );
+bus.listen('log.*', evt => console.info(evt));
