@@ -11,16 +11,16 @@ const bus = servicebus({ package: true });
 let count = 0;
 logger.info('Log4js works');
 
-const sql = 'select * from columnDef';
+const sql = 'select aantal= count(*) from columnDef';
 
 const sendCron = async () => {
   const data = await Q(mssql, sql, true);
   // logger.trace(data);
   const payload = Object.assign({}, data, { counter: ++count });
-  bus.send('cron-1sec', payload);
+  bus.send('test.npm.cron', payload);
 };
 
-bus.listen('cron-1sec', evt => logger.info(JSON.stringify(evt, null, 2)));
+bus.listen('test.npm.cron', evt => logger.info(JSON.stringify(evt, null, 2)));
 new CronJob(
   '*/10 * * * * *',
   sendCron,
