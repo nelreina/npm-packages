@@ -5,6 +5,7 @@ module.exports = (category = 'default', options = {}) => {
   let file = false;
   let logstash = false;
   let mq = false;
+  let nelmq = false;
   config.appenders = {};
   config.appenders.console = { type: 'console' };
   config.categories = {};
@@ -19,6 +20,7 @@ module.exports = (category = 'default', options = {}) => {
   if ('console' in options) console = options.console;
   if ('file' in options) file = options.file;
   if ('mq' in options) mq = options.mq;
+  if ('nelmq' in options) nelmq = options.nelmq;
   if ('logstash' in options) {
     if (!isBoolean(options.logstash)) {
       logstash = options.logstash;
@@ -38,6 +40,14 @@ module.exports = (category = 'default', options = {}) => {
   if (mq) {
     config.appenders.mq = { type: '@log4js-node/rabbitmq' };
     config.categories[category].appenders.push('mq');
+  }
+  if (nelmq) {
+    config.appenders.nelmq = {
+      type: '@nelreina/node-log4js-servicebus',
+      layout: { type: 'json', separator: ',' },
+      queue: nelmq
+    };
+    config.categories[category].appenders.push('nelmq');
   }
   if (logstash) {
     config.appenders.logstash = {

@@ -2,7 +2,7 @@ const ServiceBus = require('servicebus');
 const retry = require('servicebus-retry');
 const messageDomain = require('servicebus-message-domain');
 module.exports = (options = {}) => {
-  const bus = ServiceBus.bus({ url: options.url });
+  const bus = ServiceBus.bus(options);
   bus.use(
     retry({
       store: new retry.MemoryStore()

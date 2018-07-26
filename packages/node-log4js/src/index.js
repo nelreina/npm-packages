@@ -4,6 +4,8 @@ const S = require('string');
 const getConfig = require('./get-config');
 
 module.exports = (category = 'default', options) => {
+  Log4js.addLayout('json', () => logEvent => logEvent);
+
   if (!options) {
     Log4js.configure(getConfig());
     return Log4js.getLogger();
