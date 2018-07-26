@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/dotenv",
-  "version": "3.0.1",
+  "version": "3.2.0",
   "description": "",
   "main": "src/index.js",
   "files": [
@@ -23,7 +23,7 @@
     "url": "https://github.com/nelreina/npm-packages.git"
   },
   "dependencies": {
-    "@nelreina/node-crypto": "^3.0.1",
+    "@nelreina/node-crypto": "^3.2.0",
     "lodash": "^4.17.10",
     "string": "^3.3.3"
   }
