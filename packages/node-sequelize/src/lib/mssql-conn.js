@@ -27,6 +27,11 @@ module.exports = (logger = console) => {
     conn['password'] = DB_PASSWORD;
     conn['database'] = DB_NAME;
     conn['host'] = DB_HOST;
+    conn['dialectOptions'] = {
+      encrypt: true,
+      requestTimeout: 0,
+      connectionTimeout: 9999999999
+    };
     if (DB_PORT) {
       conn['port'] = DB_PORT;
     }
