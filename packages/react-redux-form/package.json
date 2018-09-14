@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/react-redux-form",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "description": "Abstraction of redux-form",
   "main": "lib/index.js",
   "module": "es/index.js",
