@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
 const FieldRadio = ({ options, input, type, form, formname, ...rest }) => {
   const { name } = input;
-  const formValues = form[formname].values || {};
+  const formValues = (form[formname] && form[formname].values) || {};
   return options.map(opt => (
     <div className="form-check form-check-inline" key={opt.value}>
       <input

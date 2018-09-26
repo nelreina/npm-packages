@@ -44,7 +44,7 @@ class ReduxFormClass {
     });
     return errors;
   };
-  getComponent = () => {
+  getComponent = (showButton = true) => {
     if (isArray(this._fields)) {
       let allFieldsContainsName = true;
       this._fields.forEach(field => {
@@ -74,15 +74,17 @@ class ReduxFormClass {
               formname={this._formName}
             />
           </FormField>
-          <Button
-            btn={[this._buttonClass, loading ? 'disabled' : ''].join(' ')}
-            type="submit"
-            disabled={loading}
-          >
-            {loading && <Spinner />}
-            {'   '}
-            {this._buttonText || 'Submit'}
-          </Button>
+          {showButton && (
+            <Button
+              btn={[this._buttonClass, loading ? 'disabled' : ''].join(' ')}
+              type="submit"
+              disabled={loading}
+            >
+              {loading && <Spinner />}
+              {'   '}
+              {this._buttonText || 'Submit'}
+            </Button>
+          )}
         </form>
       );
     };
