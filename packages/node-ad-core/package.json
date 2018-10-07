@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/node-ad-core",
-  "version": "3.2.0",
+  "version": "3.2.4",
   "description": "Active Directory API for Node(Fork)",
   "main": "index.js",
   "scripts": {
