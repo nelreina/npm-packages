@@ -13,6 +13,8 @@ const btn = props =>
     { 'btn-dark': props.black },
     { 'btn-block': props.block },
     { 'btn-link': props.link },
+    { 'btn-lg': props.lg },
+    { 'btn-sm': props.sm },
     { 'btn-block': props.block }
   );
 const Button = styled.button.attrs({
