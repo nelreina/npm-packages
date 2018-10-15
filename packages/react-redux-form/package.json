@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/react-redux-form",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "description": "Abstraction of redux-form",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -33,7 +33,7 @@
     "react": "16.x"
   },
   "devDependencies": {
-    "@nelreina/web-redux": "^3.2.0",
+    "@nelreina/web-redux": "^3.2.7",
     "bootstrap": "^4.1.0",
     "nwb": "0.21.x",
     "react": "^16.3.2",
