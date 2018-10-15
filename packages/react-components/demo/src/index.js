@@ -55,8 +55,10 @@ const Simple = ({ close }) => (
 );
 
 class Demo extends Component {
-  state = { show: false };
+  state = { show: false, showCentered: false };
   toggleModal = () => this.setState(ps => ({ show: !ps.show }));
+  toggleModalCentered = () =>
+    this.setState(ps => ({ showCentered: !ps.showCentered }));
   render() {
     return (
       <div>
@@ -113,12 +115,28 @@ class Demo extends Component {
             <button onClick={this.toggleModal} className="btn btn-secondary">
               Open Modal
             </button>
+            <hr />
+            <button
+              onClick={this.toggleModalCentered}
+              className="btn btn-secondary"
+            >
+              Open Modal Centered
+            </button>
             <Modal
               title="My modal"
               show={this.state.show}
               close={this.toggleModal}
+              hide
             >
               Modal Component
+            </Modal>
+            <Modal
+              title="My modal"
+              show={this.state.showCentered}
+              close={this.toggleModalCentered}
+              centered
+            >
+              Modal Component Centered
             </Modal>
           </Box>
         </Wrapper>

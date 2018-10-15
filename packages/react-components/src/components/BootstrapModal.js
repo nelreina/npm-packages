@@ -32,10 +32,16 @@ class BootstrapModal extends Component {
       show,
       title,
       hide,
-      theme = { header: {} }
+      theme = { header: {} },
+      centered = false
     } = this.props;
     return (
-      <Modal show={show} onHide={hide && close} size={msize(sm, lg)}>
+      <Modal
+        show={show}
+        onHide={hide && close}
+        size={msize(sm, lg)}
+        centered={centered}
+      >
         {title && (
           <Header closeButton={hide} theme={theme}>
             <Title theme={theme}>{title}</Title>
