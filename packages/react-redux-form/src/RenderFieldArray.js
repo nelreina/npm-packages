@@ -62,7 +62,10 @@ const RenderFieldArray = props => {
               {removeField && (
                 <button
                   className={[cssFieldRowButton, 'btn', 'btn-danger'].join(' ')}
-                  onClick={() => fields.remove(idx)}
+                  onClick={evt => {
+                    evt.preventDefault();
+                    fields.remove(idx);
+                  }}
                 >
                   -
                 </button>
@@ -71,7 +74,13 @@ const RenderFieldArray = props => {
           );
         })}
         {addField && (
-          <button className="btn btn-light" onClick={() => fields.push()}>
+          <button
+            className="btn btn-light"
+            onClick={evt => {
+              evt.preventDefault();
+              fields.push();
+            }}
+          >
             + {parent}
           </button>
         )}
