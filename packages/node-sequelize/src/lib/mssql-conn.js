@@ -2,20 +2,21 @@ require('dotenv').config();
 const Sequelize = require('sequelize');
 
 const DB_HOST = process.env.DB_HOST;
-const DB_NAME = process.env.DB_NAME;
 const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_PORT = process.env.DB_PORT;
 const DB_INTEGRATED = process.env.DB_INTEGRATED;
 
-const trustedConn = `Server=${DB_HOST};Database=${DB_NAME};Trusted_Connection=yes;`;
-const authConn = `Server=${DB_HOST};Database=${DB_NAME};Username:${DB_USERNAME};Pass=`;
-
-module.exports = (logger = console) => {
+module.exports = (dbName, logger = console) => {
   if (!DB_INTEGRATED) {
     logger.error('env variable DB_INTEGRATED is required!');
     throw new Error('ERR: env variable DB_INTEGRATED is required!');
   }
+  const DB_NAME = dbName || process.env.DB_NAME;
+
+  const trustedConn = `Server=${DB_HOST};Database=${DB_NAME};Trusted_Connection=yes;`;
+  const authConn = `Server=${DB_HOST};Database=${DB_NAME};Username:${DB_USERNAME};`;
+
   const integrated = DB_INTEGRATED === 'Y';
   logger.info('mssql connection', integrated ? trustedConn : authConn);
   const conn = {};
