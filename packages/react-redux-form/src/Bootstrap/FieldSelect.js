@@ -1,12 +1,12 @@
-import React from "react";
-import List from "@nelreina/react-list";
-import { connect } from "react-redux";
-import { get, isArray } from "lodash";
-import { css } from "emotion";
-import { change as fieldChange } from "redux-form";
+import React from 'react';
+import List from '@nelreina/react-list';
+import { connect } from 'react-redux';
+import { get, isArray } from 'lodash';
+import { css } from 'emotion';
+import { change as fieldChange } from 'redux-form';
 
-import getInputClass from "./get-input-class";
-import Options from "./FieldSelectOption";
+import getInputClass from './get-input-class';
+import Options from './FieldSelectOption';
 
 const hidden = css``;
 
@@ -22,19 +22,20 @@ const FieldSelect = ({
   meta,
   label,
   resetOnChange,
-  fieldChange
+  fieldChange,
+  placeholder
 }) => {
   const { name, onChange } = input;
   let selectOptions;
   if (optionsKey) {
-    const key = get(form, `${formname}.values.${optionsKey}`, "");
+    const key = get(form, `${formname}.values.${optionsKey}`, '');
     if (options) {
       selectOptions = options[key];
     } else if (reduxstate) {
       selectOptions = get(stateOptions, `${reduxstate}.${key}`, []);
       // return reduxstate;
     } else {
-      return "No options has been given";
+      return 'No options has been given';
     }
   } else {
     if (options) {
@@ -43,23 +44,29 @@ const FieldSelect = ({
       selectOptions = get(stateOptions, reduxstate, {});
       // return reduxstate;
     } else {
-      return "No options has been given";
+      return 'No options has been given';
     }
   }
   const selectChange = evt => {
     const { value } = evt.target;
     if (resetOnChange) {
       if (isArray(resetOnChange)) {
-        resetOnChange.forEach(fld => fieldChange(formname, fld, ""));
+        resetOnChange.forEach(fld => fieldChange(formname, fld, ''));
       } else {
-        fieldChange(formname, resetOnChange, "");
+        fieldChange(formname, resetOnChange, '');
       }
     }
     onChange(value);
   };
   const noOptions = !selectOptions || selectOptions.length === 0;
+  let firstOption = 'Choose a ';
+  if (placeholder) {
+    firstOption += placeholder;
+  } else {
+    firstOption += label || name;
+  }
   return (
-    <div className={["form-group", noOptions ? hidden : ""].join(" ")}>
+    <div className={['form-group', noOptions ? hidden : ''].join(' ')}>
       {label && <label>{label}</label>}
       <select
         className={getInputClass(meta)}
@@ -67,7 +74,7 @@ const FieldSelect = ({
         {...input}
         onChange={selectChange}
       >
-        <option value="">Choose a {label || name} </option>
+        <option value="">{firstOption}</option>
         <List of={Options} iterator={selectOptions} />
       </select>
       {info && <small className="form-text text-muted">{info}</small>}
