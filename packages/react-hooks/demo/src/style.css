@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 0 3em;
+}
+code {
+  display: block;
+  font-family: 'Courier New', Courier, monospace;
+  border: 1px solid red;
+  padding: 1em;
+}
+section {
+  margin-top: 1em;
+}
