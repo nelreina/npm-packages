@@ -18,7 +18,7 @@ module.exports = (url, options = {}) =>
       query,
       body,
       contentType,
-      headers,
+      headers = {},
       timeout = 30000
     } = options;
     const requestHeaders = titleCaseHeaders(headers);
