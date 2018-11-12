@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/node-unirest",
-  "version": "3.2.12",
+  "version": "3.2.13",
   "description": "Promisified Unirest (simple apis)",
   "main": "src/index.js",
   "files": [
