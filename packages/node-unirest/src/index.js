@@ -3,6 +3,8 @@ const parser = require('xml2json');
 const xmlBuilder = require('./xml-builder');
 const S = require('string');
 
+const CookieJar = unirest.jar();
+
 const titleCaseHeaders = headers => {
   const ret = {};
   Object.keys(headers).forEach(
@@ -11,7 +13,7 @@ const titleCaseHeaders = headers => {
   return ret;
 };
 
-module.exports = (url, options = {}) =>
+module.exports = (url, options = {}, returnBody = true) =>
   new Promise((resolve, reject) => {
     const {
       method,
@@ -19,10 +21,19 @@ module.exports = (url, options = {}) =>
       body,
       contentType,
       headers = {},
-      timeout = 30000
+      timeout = 30000,
+      cookies
     } = options;
     const requestHeaders = titleCaseHeaders(headers);
-    const req = unirest(method || 'GET', url);
+    let req;
+
+    if (cookies) {
+      cookies.split(';').forEach(cookie => CookieJar.add(cookie, '/'));
+      req = unirest(method || 'GET', url).jar(CookieJar);
+    } else {
+      req = unirest(method || 'GET', url);
+    }
+
     if (query) {
       req.query(query);
     }
@@ -47,9 +58,14 @@ module.exports = (url, options = {}) =>
     req.headers(requestHeaders);
     req.end(res => {
       if (res.error) reject(res.error);
-      let resp = res.body;
-      if (contentType === 'xml' && !S(resp).isEmpty()) {
-        resp = JSON.parse(parser.toJson(resp));
+      let resp;
+      if (returnBody) {
+        resp = res.body;
+        if (contentType === 'xml' && !S(resp).isEmpty()) {
+          resp = JSON.parse(parser.toJson(resp));
+        }
+      } else {
+        resp = res;
       }
       resolve(resp);
     });
