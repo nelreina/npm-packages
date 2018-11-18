@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/node-express",
-  "version": "3.2.16",
+  "version": "3.2.18",
   "description": "Boilerplate Express js with helmet security built in",
   "main": "src/index.js",
   "files": [
