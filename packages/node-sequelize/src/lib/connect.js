@@ -8,10 +8,12 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 module.exports = (dialect, DB_NAME = process.env.DB_NAME, logger = console) =>
   new Promise(async (resolve, reject) => {
     if (!dialect) {
-      reject('Please provide a dialect (mysql|sqlite|postgres) !');
+      reject({ message: 'Please provide a dialect (mysql|sqlite|postgres) !' });
+      return;
     }
     if (dialect === 'mssql') {
-      reject('Please use "mssql-conn" object in this library!');
+      reject({ message: 'Please use "mssql-conn" object in this library!' });
+      return;
     }
 
     try {
