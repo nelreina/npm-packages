@@ -1,12 +1,18 @@
 require('dotenv').config();
 const Sequelize = require('sequelize');
 
-const DB_HOST = process.env.DB_HOST;
-const DB_USERNAME = process.env.DB_USERNAME;
-const DB_PASSWORD = process.env.DB_PASSWORD;
+const defaultOptions = {
+  dialect: process.env.DB_DIALECT,
+  dbName: process.env.DB_NAME,
+  logger: console,
+  dbHost: process.env.DB_HOST,
+  dbUsername: process.env.DB_USERNAME,
+  dbPassword: process.env.DB_PASSWORD
+};
 
-module.exports = (dialect, DB_NAME = process.env.DB_NAME, logger = console) =>
+module.exports = (options = defaultOptions) =>
   new Promise(async (resolve, reject) => {
+    const { dialect, dbName, dbHost, dbUsername, dbPassword, logger } = options;
     if (!dialect) {
       reject({ message: 'Please provide a dialect (mysql|sqlite|postgres) !' });
       return;
@@ -17,13 +23,13 @@ module.exports = (dialect, DB_NAME = process.env.DB_NAME, logger = console) =>
     }
 
     try {
-      const authConn = `Server=${DB_HOST};Database=${DB_NAME};Username:${DB_USERNAME};`;
+      const authConn = `Server=${dbHost};Database=${dbName};Username:${dbUsername};`;
 
       logger.info(`${dialect} connection: ${authConn}`);
       const options = { dialect };
       options['operatorsAliases'] = false;
       options['logging'] = false;
-      const db = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, options);
+      const db = new Sequelize(dbName, dbUsername, dbPassword, options);
       await db.authenticate();
       resolve(db);
     } catch (error) {
