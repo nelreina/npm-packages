@@ -20,6 +20,6 @@ module.exports = (options = { parseJson: true, cors: true, secure: true }) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
   }
-  app.get('/ping', (req, res) => res.send('post'));
+  app.get('/ping', (req, res) => res.send('pong'));
   return app;
 };
