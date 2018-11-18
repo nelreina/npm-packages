@@ -4,15 +4,14 @@ const Sequelize = require('sequelize');
 const defaultOptions = {
   dialect: process.env.DB_DIALECT,
   dbName: process.env.DB_NAME,
-  logger: console,
   dbHost: process.env.DB_HOST,
   dbUsername: process.env.DB_USERNAME,
   dbPassword: process.env.DB_PASSWORD
 };
 
-module.exports = (options = defaultOptions) =>
+module.exports = (options = defaultOptions, logger = console) =>
   new Promise(async (resolve, reject) => {
-    const { dialect, dbName, dbHost, dbUsername, dbPassword, logger } = options;
+    const { dialect, dbName, dbHost, dbUsername, dbPassword } = options;
     if (!dialect) {
       reject({ message: 'Please provide a dialect (mysql|sqlite|postgres) !' });
       return;
