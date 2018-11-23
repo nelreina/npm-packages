@@ -13,7 +13,8 @@
   },
   "scripts": {
     "precommit": "pretty-quick --staged",
-    "dev": "nodemon packages/bin/src/index"
+    "dev": "nodemon packages/bin/src/index",
+    "unirest": "nodemon packages/bin/src/test-unirest"
   },
   "dependencies": {
     "nodemon": "^1.18.3"

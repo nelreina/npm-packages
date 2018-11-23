@@ -1,7 +1,9 @@
 const unirest = require('unirest');
 const parser = require('xml2json');
-const xmlBuilder = require('./xml-builder');
 const S = require('string');
+const qs = require('qs');
+
+const xmlBuilder = require('./xml-builder');
 
 const CookieJar = unirest.jar();
 
@@ -16,22 +18,23 @@ const titleCaseHeaders = headers => {
 module.exports = (url, options = {}, returnBody = true) =>
   new Promise((resolve, reject) => {
     const {
-      method,
+      method = 'GET',
       query,
-      body,
-      contentType,
+      body = '',
+      contentType = 'json',
       headers = {},
       timeout = 30000,
-      cookies
+      cookies,
+      delimiter = '&'
     } = options;
     const requestHeaders = titleCaseHeaders(headers);
     let req;
 
     if (cookies) {
       cookies.split(';').forEach(cookie => CookieJar.add(cookie, '/'));
-      req = unirest(method || 'GET', url).jar(CookieJar);
+      req = unirest(method, url).jar(CookieJar);
     } else {
-      req = unirest(method || 'GET', url);
+      req = unirest(method, url);
     }
 
     if (query) {
@@ -42,20 +45,23 @@ module.exports = (url, options = {}, returnBody = true) =>
       req.timeout(timeout);
     }
 
-    if (method === 'POST') {
-      if (!body) return reject({ message: 'You must provide a body' });
+    if (method === 'POST' || method === 'PUT') {
       let postData = body;
-      let postDataLength = JSON.stringify(body).length;
       if (contentType === 'xml') {
-        postData = xmlBuilder(body);
-        postDataLength = postData.length;
+        postData = xmlBuilder(postData);
       }
-      requestHeaders['Content-Length'] = postDataLength;
-      req.type(contentType || 'json');
-      req.send(postData);
+      if (contentType === 'form') {
+        postData = qs.parse(postData, { delimiter });
+      }
+      req.type(contentType);
+      req.headers(requestHeaders);
+      if (contentType === 'form') {
+        req.form(postData);
+      } else {
+        req.send(postData);
+      }
     }
 
-    req.headers(requestHeaders);
     req.end(res => {
       if (res.error) reject(res.error);
       let resp;

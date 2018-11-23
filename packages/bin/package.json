@@ -9,6 +9,7 @@
     "@nelreina/node-log4js": "^3.2.0",
     "@nelreina/node-sequelize": "^3.2.20",
     "@nelreina/node-servicebus": "^3.2.0",
+    "@nelreina/node-unirest": "^3.2.13",
     "cron": "^1.3.0"
   },
   "scripts": {
