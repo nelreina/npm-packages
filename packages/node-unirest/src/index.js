@@ -47,12 +47,23 @@ module.exports = (url, options = {}, returnBody = true) =>
 
     if (method === 'POST' || method === 'PUT') {
       let postData = body;
-      if (contentType === 'xml') {
-        postData = xmlBuilder(postData);
-        requestHeaders['Content-Length'] = JSON.stringify(postData).length;
-      }
-      if (contentType === 'form') {
-        postData = qs.parse(postData, { delimiter });
+      switch (contentType) {
+        case 'xml':
+          postData = xmlBuilder(postData);
+          requestHeaders['Content-Length'] = postData.length;
+          break;
+        case 'form':
+          const spaces = postData.split(' ').length - 1;
+          requestHeaders['Content-Length'] = postData.length + spaces * 2;
+          postData = qs.parse(postData, { delimiter });
+          console.info(postData);
+          break;
+        case 'json':
+          requestHeaders['Content-Length'] = JSON.stringify(postData).length;
+          break;
+        default:
+          requestHeaders['Content-Length'] = postData.length;
+          break;
       }
       req.type(contentType);
       req.headers(requestHeaders);
