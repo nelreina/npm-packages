@@ -49,6 +49,7 @@ module.exports = (url, options = {}, returnBody = true) =>
       let postData = body;
       if (contentType === 'xml') {
         postData = xmlBuilder(postData);
+        requestHeaders['Content-Length'] = JSON.stringify(postData).length;
       }
       if (contentType === 'form') {
         postData = qs.parse(postData, { delimiter });
