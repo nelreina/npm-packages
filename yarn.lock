@@ -1748,10 +1748,10 @@ better-assert@~1.0.0:
   dependencies:
     callsite "1.0.0"
 
-big-number@0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/big-number/-/big-number-0.3.1.tgz#ac73020c0a59bb79eb17c2ce2db77f77d974e013"
-  integrity sha1-rHMCDApZu3nrF8LOLbd/d9l04BM=
+big-number@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/big-number/-/big-number-1.0.0.tgz#a0277607a0adb06492d3099546ef0d547785df18"
+  integrity sha512-cHUzdT+mMXd1ozht8n5ZwBlNiPO/4zCqqkyp3lF1TMPsRJLXUbQ7cKnfXRkrW475H5SOtSOP0HFeihNbpa53MQ==
 
 big.js@^3.1.3:
   version "3.2.0"
@@ -1775,10 +1775,10 @@ bitsyntax@~0.0.4:
   dependencies:
     buffer-more-ints "0.0.2"
 
-bl@^1.2.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"
-  integrity sha512-e8tQYnZodmebYDWGH7KMRvtzKXaJHx3BbilrgZCfvyLUYdKpK1t5PSPmpkny/SgiTSCnjfLW7v5rlONXVFkQEA==
+bl@^2.0.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/bl/-/bl-2.1.2.tgz#591182cb9f3f2eff3beb1e76dabedfb5c5fa9a26"
+  integrity sha512-DvC0x+PxmSJNx8wXoFV15pC2+GOJ3ohb4F1REq3X32a2Z3nEBpR1Guu740M7ouYAImFj4BXDNilLNZbygtG9lQ==
   dependencies:
     readable-stream "^2.3.5"
     safe-buffer "^5.1.1"
@@ -6073,10 +6073,17 @@ iconv-lite@0.4.19:
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
   integrity sha512-oTZqweIP51xaGPI4uPa56/Pri/480R+mo7SeU+YETByQNhDG55ycFyNLIgta9vXhILrxXDmF7ZGhqZIcuN0gJQ==
 
-iconv-lite@0.4.23, iconv-lite@^0.4.11, iconv-lite@^0.4.17, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+iconv-lite@0.4.23, iconv-lite@^0.4.17, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.23"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.23.tgz#297871f63be507adcfbfca715d0cd0eed84e9a63"
   integrity sha512-neyTUVFtahjf0mB3dZT77u+8O0QB89jFdnBkd5P1JgYPbPaia3gXXOVL2fq8VyU2gMMD7SaN7QukTB/pmXYvDA==
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
+
+iconv-lite@^0.4.23:
+  version "0.4.24"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
+  integrity sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
@@ -8682,6 +8689,11 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+native-duplexpair@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/native-duplexpair/-/native-duplexpair-1.0.0.tgz#7899078e64bf3c8a3d732601b3d40ff05db58fa0"
+  integrity sha1-eJkHjmS/PIo9cyYBs9QP8F21j6A=
+
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
@@ -10754,7 +10766,7 @@ readable-id-mjs@^1.0.0:
   dependencies:
     nanoid "^1.0.4"
 
-"readable-stream@1 || 2", readable-stream@2, readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.6, readable-stream@^2.2.9, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6:
+"readable-stream@1 || 2", readable-stream@2, readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.2.9, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
   integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
@@ -10786,6 +10798,15 @@ readable-stream@1.1.x, "readable-stream@1.x >=1.1.9":
     inherits "~2.0.1"
     isarray "0.0.1"
     string_decoder "~0.10.x"
+
+readable-stream@^3.0.3:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.0.6.tgz#351302e4c68b5abd6a2ed55376a7f9a25be3057a"
+  integrity sha512-9E1oLoOWfhSXHGv6QlwXJim7uNzd9EVlWK+21tCU9Ju/kR0/p2AZYPz4qSchgO8PlLIH4FpZYfzwS+rEksZjIg==
+  dependencies:
+    inherits "^2.0.3"
+    string_decoder "^1.1.1"
+    util-deprecate "^1.0.1"
 
 readable-stream@~2.0.0, readable-stream@~2.0.5:
   version "2.0.6"
@@ -11481,10 +11502,10 @@ sequelize-msnodesqlv8@^0.2.6-beta.7:
     msnodesqlv8 "0.3.2"
     uuid "3.1.0"
 
-sequelize@^4.37.8:
-  version "4.37.10"
-  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.37.10.tgz#1ccca570956a5bfe1c4c00abbc927633ca8d12d8"
-  integrity sha512-Ugfqfciorsq2xX2xOimp/f2VVQdMAnClrl+0i34OgjVgQOAXDjgbbA5TwYTgGNxuv/a7r3+ELQi28mNmoizsSw==
+sequelize@^4.41.2:
+  version "4.41.2"
+  resolved "https://registry.yarnpkg.com/sequelize/-/sequelize-4.41.2.tgz#bb9ba30d72e9eeb883c9861cd0e2cac672010883"
+  integrity sha512-8vPf2R0o9iEmtzkqNzwFdblO+0Mu+RNxOdLeYGGqWGlp3cushLpQucAeSGPQgf2hQVZP5yOCM1ouZKTQ5FTlvA==
   dependencies:
     bluebird "^3.5.0"
     cls-bluebird "^2.1.0"
@@ -11501,7 +11522,7 @@ sequelize@^4.37.8:
     terraformer-wkt-parser "^1.1.2"
     toposort-class "^1.0.1"
     uuid "^3.2.1"
-    validator "^9.4.1"
+    validator "^10.4.0"
     wkx "^0.4.1"
 
 serialize-javascript@^1.4.0:
@@ -12162,6 +12183,13 @@ string_decoder@^1.0.0, string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
+string_decoder@^1.1.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.2.0.tgz#fe86e738b19544afe70469243b2a1ee9240eae8d"
+  integrity sha512-6YqyX6ZWEYguAxgZzHGL7SsCeGx3V2TtOTqZz1xSTSWnqsbWwbptafNyvf/ACquZUXV3DANr5BDIwNYe1mN42w==
+  dependencies:
+    safe-buffer "~5.1.0"
+
 string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
@@ -12443,18 +12471,18 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-tedious@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/tedious/-/tedious-2.6.1.tgz#e9f610ba5eacee6da4fd77a09f4a463d6db7b772"
-  integrity sha512-5Edp2QNmxHLdeJUPcloE5qwT7zCHkdE/Yb1Xt3XYE2MONhAyMKzMfOo1jB7CoQYqEDU6+CxvwG9jcqj0I4H9rw==
+tedious@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/tedious/-/tedious-3.0.1.tgz#d3c826b6f08e16faa285061c3b0bda99543480f8"
+  integrity sha512-Uugv3CPH1LpYijyBS9qZb0g8k3WYM5EPoZOfYmTj/ubc3/oyXvY2KmR17IUtmLJcGpGDaU3VygYzcihPlGSUug==
   dependencies:
-    babel-runtime "^6.26.0"
-    big-number "0.3.1"
-    bl "^1.2.0"
+    big-number "1.0.0"
+    bl "^2.0.1"
     depd "^1.1.2"
-    iconv-lite "^0.4.11"
+    iconv-lite "^0.4.23"
+    native-duplexpair "^1.0.0"
     punycode "^2.1.0"
-    readable-stream "^2.2.6"
+    readable-stream "^3.0.3"
     sprintf-js "^1.1.1"
 
 temp-dir@^1.0.0:
@@ -13051,7 +13079,7 @@ useragent@^2.1.12:
     lru-cache "4.1.x"
     tmp "0.0.x"
 
-util-deprecate@~1.0.1:
+util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
@@ -13119,6 +13147,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+validator@^10.4.0:
+  version "10.9.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-10.9.0.tgz#d10c11673b5061fb7ccf4c1114412411b2bac2a8"
+  integrity sha512-hZJcZSWz9poXBlAkjjcsNAdrZ6JbjD3kWlNjq/+vE7RLLS/+8PAj3qVVwrwsOz/WL8jPmZ1hYkRvtlUeZAm4ug==
 
 validator@^9.4.1:
   version "9.4.1"

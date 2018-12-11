@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "dotenv": "^5.0.1",
-    "sequelize": "^4.37.8",
-    "tedious": "^2.6.1"
+    "sequelize": "^4.41.2",
+    "tedious": "^3.0.1"
   },
   "optionalDependencies": {
     "sequelize-msnodesqlv8": "^0.2.6-beta.7"
