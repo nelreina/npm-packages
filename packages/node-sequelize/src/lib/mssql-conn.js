@@ -13,7 +13,7 @@ module.exports = (DB_NAME = process.env.DB_NAME, logger = console) =>
       if (!DB_INTEGRATED) {
         reject({ message: 'ERR: env variable DB_INTEGRATED is required!' });
       }
-
+      let sequelize;
       const trustedConn = `Server=${DB_HOST};Database=${DB_NAME};Trusted_Connection=yes;`;
       const authConn = `Server=${DB_HOST};Database=${DB_NAME};Username:${DB_USERNAME};`;
 
@@ -23,25 +23,37 @@ module.exports = (DB_NAME = process.env.DB_NAME, logger = console) =>
       conn['operatorsAliases'] = false;
       conn['logging'] = false;
       if (!integrated) {
-        conn['username'] = DB_USERNAME;
-        conn['password'] = DB_PASSWORD;
-        conn['database'] = DB_NAME;
-        conn['host'] = DB_HOST;
-        conn['dialectOptions'] = {
+        const dialectOptions = {
           encrypt: true,
           requestTimeout: 0,
-          connectionTimeout: 9999999999
+          connectTimeout: 0
+        };
+        const pool = {
+          max: process.env.DB_POOL_MAX || 5,
+          min: process.env.DB_POOL_MIN || 0,
+          idle: process.env.DB_POOL_IDLE || 20000,
+          acquire: process.env.DB_POOL_ACQUIRE || 20000
+        };
+        const options = {
+          host: DB_HOST,
+          dialect: 'mssql',
+          operatorsAliases: false,
+          logging: false,
+          pool,
+          dialectOptions
         };
         if (DB_PORT) {
-          conn['port'] = DB_PORT;
+          options['port'] = DB_PORT;
         }
+
+        sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, options);
       } else {
         conn['dialectModulePath'] = 'sequelize-msnodesqlv8';
         conn['dialectOptions'] = { connectionString: trustedConn };
+        sequelize = new Sequelize(conn);
       }
 
-      const sequelize = new Sequelize(conn);
-      // await sequelize.authenticate();
+      await sequelize.authenticate();
       logger.info(
         `mssql connect success ${integrated ? trustedConn : authConn}`
       );

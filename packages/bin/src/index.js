@@ -5,19 +5,23 @@ const { mssqlConn, invokeSQLCmd: Q } = require('@nelreina/node-sequelize');
 const CronJob = require('cron').CronJob;
 
 const logger = log4js('bin', { nelmq: 'log.bin', console: false });
-const mssql = mssqlConn(logger);
 const bus = servicebus({ package: true });
 
 bus.subscribe('log.bin', evt => console.info(evt));
 
 let count = 0;
-const sql = 'select aantal= count(*) from columnDef';
+const sql = 'select aantal= count(*) from dbo.BankLoad';
 
 const sendCron = async () => {
-  const data = await Q(mssql, sql, true);
-  // logger.trace(data);
-  const payload = Object.assign({}, data, { counter: ++count });
-  logger.trace(payload);
+  try {
+    const mssql = await mssqlConn('GreenLightDB');
+    const data = await Q(mssql, sql, true);
+    // logger.trace(data);
+    const payload = Object.assign({}, data, { counter: ++count });
+    logger.trace(payload);
+  } catch (error) {
+    logger.error(error.message);
+  }
 };
 
 new CronJob(
