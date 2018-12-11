@@ -51,11 +51,6 @@ module.exports = (DB_NAME = process.env.DB_NAME, logger = console) => {
       conn['dialectOptions'] = { connectionString: trustedConn };
       sequelize = new Sequelize(conn);
     }
-    sequelize.authenticate().then(() => {
-      logger.info(
-        `mssql connect success ${integrated ? trustedConn : authConn}`
-      );
-    });
 
     return sequelize;
   } catch (error) {
