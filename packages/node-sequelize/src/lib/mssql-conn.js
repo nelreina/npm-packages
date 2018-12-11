@@ -41,7 +41,7 @@ module.exports = (DB_NAME = process.env.DB_NAME, logger = console) =>
       }
 
       const sequelize = new Sequelize(conn);
-      await sequelize.authenticate();
+      // await sequelize.authenticate();
       logger.info(
         `mssql connect success ${integrated ? trustedConn : authConn}`
       );
