@@ -30,7 +30,7 @@ module.exports = (DB_NAME = process.env.DB_NAME, logger = console) =>
         conn['dialectOptions'] = {
           encrypt: true,
           requestTimeout: 0,
-          connectTimeout: 0
+          connectionTimeout: 9999999999
         };
         if (DB_PORT) {
           conn['port'] = DB_PORT;
