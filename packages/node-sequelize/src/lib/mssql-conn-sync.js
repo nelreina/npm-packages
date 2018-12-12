@@ -7,10 +7,10 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_PORT = process.env.DB_PORT;
 const DB_INTEGRATED = process.env.DB_INTEGRATED;
 const pool = {
-  max: process.env.DB_POOL_MAX || 10,
-  min: process.env.DB_POOL_MIN || 0,
-  idle: process.env.DB_POOL_IDLE || 20000,
-  acquire: process.env.DB_POOL_ACQUIRE || 20000
+  max: parseInt(process.env.DB_POOL_MAX, 0) || 10,
+  min: parseInt(process.env.DB_POOL_MIN, 0) || 0,
+  idle: parseInt(process.env.DB_POOL_IDLE, 0) || 20000,
+  acquire: parseInt(process.env.DB_POOL_ACQUIRE, 0) || 20000
 };
 module.exports = (dbName, logger = console) => {
   if (!DB_INTEGRATED) {
@@ -36,8 +36,8 @@ module.exports = (dbName, logger = console) => {
     conn['options'] = { pool };
     conn['dialectOptions'] = {
       encrypt: true,
-      requestTimeout: process.env.DB_REQUEST_TIMOUT || 0,
-      connectTimeout: process.env.DB_CONNECT_TIMOUT || 0
+      requestTimeout: parseInt(process.env.DB_REQUEST_TIMOUT, 0) || 0,
+      connectTimeout: parseInt(process.env.DB_CONNECT_TIMOUT, 0) || 0
     };
     if (DB_PORT) {
       conn['port'] = DB_PORT;
