@@ -29,22 +29,30 @@ module.exports = (dbName, logger = console) => {
   conn['operatorsAliases'] = false;
   conn['logging'] = false;
   if (!integrated) {
-    conn['username'] = DB_USERNAME;
-    conn['password'] = DB_PASSWORD;
-    conn['database'] = DB_NAME;
-    conn['host'] = DB_HOST;
-    conn['options'] = { pool };
-    conn['dialectOptions'] = {
+    const dialectOptions = {
       encrypt: true,
-      requestTimeout: parseInt(process.env.DB_REQUEST_TIMOUT, 0) || 0,
-      connectTimeout: parseInt(process.env.DB_CONNECT_TIMOUT, 0) || 0
+      requestTimeout: parseInt(process.env.DB_REQUEST_TIMEOUT, 0) || 0,
+      connectTimeout: parseInt(process.env.DB_CONNECT_TIMEOUT, 0) || 0
     };
+
+    const options = {
+      host: DB_HOST,
+      dialect: 'mssql',
+      operatorsAliases: false,
+      pool,
+      dialectOptions
+    };
+    if (!process.env.DB_LOGGING) {
+      options['logging'] = false;
+    }
+
     if (DB_PORT) {
       conn['port'] = DB_PORT;
     }
+    return new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, options);
   } else {
     conn['dialectModulePath'] = 'sequelize-msnodesqlv8';
     conn['dialectOptions'] = { connectionString: trustedConn };
+    return new Sequelize(conn);
   }
-  return new Sequelize(conn);
 };
