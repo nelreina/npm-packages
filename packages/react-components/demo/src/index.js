@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import styled from 'styled-components';
 
-import { Moment, Popover, Button, Icon, Spinner, Modal } from '../../src/index';
+import {
+  Moment,
+  Popover,
+  Button,
+  Icon,
+  Spinner,
+  Modal,
+  UiDynamicTable
+} from '../../src/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
 const Box = styled.div.attrs({})`
@@ -10,6 +18,29 @@ const Box = styled.div.attrs({})`
   border: 1px solid #ddd;
   border-radius: calc(1em / 2);
 `;
+
+const data = [
+  {
+    name: 'Nelson',
+    lastName: 'Reina',
+    salary: 1000
+  },
+  {
+    name: 'Dion',
+    lastName: 'Joe',
+    job: 'Developer',
+    hobbies: ''
+  },
+  {
+    name: 'Oscar',
+    lastName: 'Garcia',
+    job: 'Consultant'
+  }
+];
+
+const options = {
+  salary: { type: 'amount', right: true }
+};
 
 const Wrapper = styled.div.attrs({
   className: 'container'
@@ -62,6 +93,7 @@ class Demo extends Component {
   render() {
     return (
       <div>
+        <UiDynamicTable data={data} colOptions={options} />
         <Title>@nelreina/react-components Demo</Title>
         <Wrapper>
           <Box>

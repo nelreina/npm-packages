@@ -1,3 +1,5 @@
+export UiDynamicTable from './components/DynamicTable';
+
 export Button from './components/Button';
 export Icon from './components/Icon';
 export Moment from './components/Moment';

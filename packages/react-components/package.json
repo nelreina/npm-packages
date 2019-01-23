@@ -19,6 +19,7 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "accounting": "^0.4.1",
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.10",
