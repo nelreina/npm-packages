@@ -21,7 +21,7 @@ const Box = styled.div.attrs({})`
 
 const data = [
   {
-    name: 'Nelson',
+    FIRST_NAME: 'Nelson',
     lastName: 'Reina',
     salary: 1000
   },

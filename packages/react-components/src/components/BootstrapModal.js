@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
-import { Button } from '@nelreina/react-components';
+import Button from './Button';
 import styled from 'styled-components';
 
 const Header = styled(Modal.Header)`

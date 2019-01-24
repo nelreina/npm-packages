@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, THead, TBody, TR, TH, TD } from './styled-bootstrap';
+import { Table, THead, TBody, TR, MLTH, TD } from './styled-bootstrap';
 import accounting from 'accounting';
 import { each } from 'lodash';
 
@@ -48,11 +48,9 @@ const UiDynamicTable = ({
     <Table collapsing compact celled selectable size="small">
       <THead>
         <TR>
-          {actions && <TH />}
+          {actions && <MLTH />}
           {headers.map((hd, idx) => (
-            <TH {...colOptions[hd]} key={idx}>
-              {hd}
-            </TH>
+            <MLTH options={{ ...colOptions[hd] }} key={idx} item={hd} />
           ))}
         </TR>
       </THead>

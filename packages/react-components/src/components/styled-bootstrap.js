@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { times } from 'lodash';
+import S from 'string';
 
 import styled from 'styled-components';
 
@@ -72,3 +74,16 @@ export const RowTD = styled.td.attrs({})`
 export const ErrorMessage = styled.pre.attrs({
   className: 'alert alert-danger'
 })``;
+
+export const MLTH = ({ item, rc = 3, options }) => {
+  const part = item.split(' ');
+  return (
+    <Fragment>
+      <TH {...options}>
+        {times(rc, nr => (
+          <THP key={nr}>{part[nr] && S(part[nr]).replaceAll('_', ' ').s}</THP>
+        ))}
+      </TH>
+    </Fragment>
+  );
+};
