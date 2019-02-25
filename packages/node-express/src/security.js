@@ -45,15 +45,7 @@ module.exports = app => {
       browserSniff: false
     })
   ); /* eslint-enable */
-  // Public-Key-Pins: https://github.com/helmetjs/hpkp
-  app.use(
-    helmet.hpkp({
-      maxAge: ms(config.maxAge) / 1000,
-      sha256s: config.sha256s,
-      includeSubdomains: true,
-      reportOnly: false
-    })
-  );
+
   // X-DNS-Prefetch-Control: https://github.com/helmetjs/dns-prefetch-control
   app.use(helmet.dnsPrefetchControl({ allow: false }));
   // https://github.com/helmetjs/referrer-policy
