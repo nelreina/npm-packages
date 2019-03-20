@@ -5,4 +5,5 @@ exports.bulkInsert = require('./lib/bulk-insert');
 exports.mssqlConn = require('./lib/mssql-conn');
 exports.mssqlConnSync = require('./lib/mssql-conn-sync');
 exports.connect = require('./lib/connect');
+exports.connectSync = require('./lib/connect-sync');
 exports.findAndUpdateModel = require('./lib/findAndUpdateModel');
