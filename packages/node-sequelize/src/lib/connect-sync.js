@@ -25,6 +25,7 @@ module.exports = (options = defaultOptions, logger = console) => {
     const options = { dialect };
     options['operatorsAliases'] = false;
     options['logging'] = false;
+    options['host'] = dbHost;
     const db = new Sequelize(dbName, dbUsername, dbPassword, options);
     db.authenticate();
     return db;
