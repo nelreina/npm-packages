@@ -1,11 +1,11 @@
 {
   "name": "private",
-  "version": "3.3.13",
+  "version": "3.3.14",
   "description": "",
   "main": "src/index.js",
   "private": true,
   "dependencies": {
-    "@nelreina/node-express": "^3.3.10",
+    "@nelreina/node-express": "^3.3.14",
     "@nelreina/node-log4js": "^3.2.0",
     "@nelreina/node-sequelize": "^3.3.13",
     "@nelreina/node-servicebus": "^3.2.0",
