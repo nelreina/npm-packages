@@ -3,9 +3,14 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const security = require('./security');
-module.exports = (options = { parseJson: true, cors: true, secure: true }) => {
-  const app = express();
 
+module.exports = (
+  options = { parseJson: true, cors: true, secure: true, staticPath: '' }
+) => {
+  const app = express();
+  if (options.staticPath.length > 0) {
+    app.use(express.static(options.staticPath));
+  }
   app.use(compression());
 
   if (options.secure) {
