@@ -12,7 +12,7 @@ module.exports = app => {
   app.use(
     helmet.hsts({
       maxAge: ms(config.maxAge) / 1000,
-      includeSubdomains: true,
+      includeSubDomains: true,
       preload: true
     })
   );
