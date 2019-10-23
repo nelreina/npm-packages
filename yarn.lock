@@ -8925,11 +8925,6 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
 
-msnodesqlv8@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/msnodesqlv8/-/msnodesqlv8-0.3.2.tgz#f85aeab7143676b0619b76affd55a988fa53e575"
-  integrity sha512-SZymK6G47Eg7+G6zyEQbIPR0kE3GPS88UvVQ4qFxqGXSRPwUZE5kUzH2+U8sEz8ESr1VLLqvhUudGghjSSZ8rQ==
-
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/multicast-dns-service-types/-/multicast-dns-service-types-1.1.0.tgz#899f11d9686e5e05cb91b35d5f0e63b773cfc901"
@@ -11940,15 +11935,6 @@ send@0.16.2:
     range-parser "~1.2.0"
     statuses "~1.4.0"
 
-sequelize-msnodesqlv8@^0.2.6-beta.7:
-  version "0.2.6-beta.7"
-  resolved "https://registry.yarnpkg.com/sequelize-msnodesqlv8/-/sequelize-msnodesqlv8-0.2.6-beta.7.tgz#8c9532f49913aacdc46f2af54cad20fee9d97b14"
-  integrity sha1-jJUy9JkTqs3Ebyr1TK0g/unZexQ=
-  dependencies:
-    debug "3.1.0"
-    msnodesqlv8 "0.3.2"
-    uuid "3.1.0"
-
 sequelize-pool@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/sequelize-pool/-/sequelize-pool-1.0.2.tgz#89c767882bbdb8a41dac66922ed9820939a5401e"
@@ -13612,11 +13598,6 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
-
-uuid@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
-  integrity sha512-DIWtzUkw04M4k3bf1IcpS2tngXEL26YUD2M0tMDUpnUrz2hgzUBlD55a4FjdLGPvfHxS6uluGWvaVEqgBcVa+g==
 
 uuid@^2.0.1, uuid@^2.0.2:
   version "2.0.3"
