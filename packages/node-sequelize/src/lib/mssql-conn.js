@@ -18,7 +18,6 @@ module.exports = (DB_NAME = process.env.DB_NAME, logger = console) =>
 
       const conn = {};
       conn['dialect'] = 'mssql';
-      conn['operatorsAliases'] = false;
       conn['logging'] = false;
       const dialectOptions = {
         encrypt: true,
@@ -34,7 +33,6 @@ module.exports = (DB_NAME = process.env.DB_NAME, logger = console) =>
       const options = {
         host: DB_HOST,
         dialect: 'mssql',
-        operatorsAliases: false,
         logging: false,
         pool,
         dialectOptions

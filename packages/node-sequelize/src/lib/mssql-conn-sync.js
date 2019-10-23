@@ -19,7 +19,6 @@ module.exports = (dbName, logger = console) => {
   logger.info('mssql connection', authConn);
   const conn = {};
   conn['dialect'] = 'mssql';
-  conn['operatorsAliases'] = false;
   conn['logging'] = false;
 
   const dialectOptions = {
@@ -31,7 +30,6 @@ module.exports = (dbName, logger = console) => {
   const options = {
     host: DB_HOST,
     dialect: 'mssql',
-    operatorsAliases: false,
     pool,
     dialectOptions
   };
