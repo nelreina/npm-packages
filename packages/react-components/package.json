@@ -1,6 +1,6 @@
 {
   "name": "@nelreina/react-components",
-  "version": "3.5.7",
+  "version": "3.5.8",
   "description": "Library with reusable react components",
   "main": "lib/index.js",
   "module": "es/index.js",
