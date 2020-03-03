@@ -87,3 +87,5 @@ export const MLTH = ({ item, rc = 3, options }) => {
     </Fragment>
   );
 };
+
+export const dummy = 'dummy';
