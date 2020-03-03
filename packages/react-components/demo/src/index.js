@@ -9,7 +9,8 @@ import {
   Icon,
   Spinner,
   Modal,
-  UiDynamicTable
+  UiDynamicTable,
+  StyledBootstrap
 } from '../../src/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
