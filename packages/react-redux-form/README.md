@@ -30,3 +30,5 @@ for examples.
 - Support for other input types like textarea, radiobutton etc... Target next version
 - Field Array validation
 - API Documentation
+
+Just a change to publish
